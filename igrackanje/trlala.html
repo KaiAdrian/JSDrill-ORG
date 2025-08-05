@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            // let dobrodosli = prompt("Vpišite se ,prosim");
+            // document.getElementById("oseba").innerText = `Dobrodošli ${dobrodosli} !`;
+            // console.log(dobrodosli)
+            let avto = {
+                model: "nissan",
+                letnik: 34
+            }
+            console.log(avto);
+            delete avto.model;
+
+            console.log(avto);
+            const person = {
+                firstname: 'Jane',
+                lastname: 'Doe',
+                fullname: function () {
+                    return this.firstname + ' ' + this.lastname;
+                }
+            };
+           console.log(person.fullname()); 
+          person.email="soo@.ff.com";
+          console.log(person);
+          person.avto=function(){
+            return this.email;
+          };
+          console.log(person)
+          console.log(person.avto)//
+          console.log(person.avto())//
+        </script>
+    </body>
+
+</html>
