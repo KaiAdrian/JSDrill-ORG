@@ -25,6 +25,7 @@ const rezultat =
 	"<br>" +
 	testTeme("Zajček") +
 	"<br>" +
-	testTeme("Kobilica");
-("<br>");
+	testTeme("Kobilica") +
+	("<br>");
 
+document.getElementById("msg").innerHTML = rezultat;
