@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            let arej = ["Micka", "Pjepca", "Jožica"];
+            console.log(arej[arej.length - 2]);
+            console.log(arej.length);
+
+            // let velikust="dolžina arr=" +arej.length;
+            let velikust = `dolžina arr = ${arej.length}`
+            console.log(velikust);
+
+            ///predlogi?
+            function arrayLenCheck(len) {
+                return `dolžina arr = ${len.length}`
+            }
+
+            let rndArray = [0, 1, 2, 3]///testi
+            console.log(arrayLenCheck(rndArray));
+            console.log(arrayLenCheck(arej));
+
+
+            // 4️⃣ Kratka arrow funkcija (če ne rabiš preverjanja tipa):
+            const arrayLenCheckArrowFun = arr => `dolžina arr ("arrov") = ${arr.length}`;
+            console.log(arrayLenCheckArrowFun);
+            console.log(arrayLenCheckArrowFun(rndArray));
+            
+
+
+
+            //        Čau 😄
+
+            // Tvoja funkcija dela čisto v redu, ampak če že iščeš predloge, ti dam par idej, kako bi jo lahko malo izboljšal ali naredil bolj fleksibilno:
+
+            // 1️⃣ Dodaj preverjanje, če je argument sploh array
+            // Ker zdaj funkcija predvideva, da vedno dobi .length, bo vrgla napako, če posreduješ nekaj, kar ni array ali string.
+
+
+            // function arrayLenCheck(arr) {
+            //     if (!Array.isArray(arr)) {
+            //         return "Napaka: podani argument ni array!";
+            //     }
+            //     return `dolžina arr = ${arr.length}`;
+            // }
+
+
+            // 2️⃣ Omogoči tudi stringe
+            // Če želiš, da deluje tudi na stringih:
+
+
+            // function arrayLenCheck(value) {
+            //     if (typeof value === "string" || Array.isArray(value)) {
+            //         return `dolžina = ${value.length}`;
+            //     }
+            //     return "Napaka: podaj array ali string.";
+            // }
+
+            // 3️⃣ Dodaj izpis elementov
+            // Morda ti včasih prav pride, da ob dolžini vidiš še vse elemente:
+
+            // function arrayLenCheck(arr) {
+            //     if (!Array.isArray(arr)) return "Ni array!";
+            //     return `dolžina arr = ${arr.length}, elementi: [${arr.join(", ")}]`;
+            // }
+
+
+        </script>
+    </body>
+
+</html>
