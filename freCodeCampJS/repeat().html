@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            const msg = "Joži je dabra bejba! \n";
+            console.log(msg.repeat(34));///en način
+
+            for (let j = 1; j <= 34; j++) {
+                // console.log(msg +[j]); ///AMATERSKO
+                console.log(`${msg} ${j}`);///PROFI
+            };///drug način (šteje interacije)
+
+
+            /////////freeCodeCamp//////
+            const character = "#";
+            const count = 8;
+            const rows = [];
+
+            for (let i = 0; i < count; i++) {
+                rows.push(character.repeat(i));
+            }
+
+            let result = ""
+
+            for (const row of rows) {
+                result = result + row + "\n";
+            }
+            console.log(result);
+        </script>
+    </body>
+
+</html>

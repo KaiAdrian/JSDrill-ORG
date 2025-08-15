@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            //         Step 42
+            // Remember in your previous loop that you used the addition operator + to increase the value of i by 1.
+
+            // You can do a similar thing with a string value, by appending a new string to an existing string. For example, hello = hello + " World";
+
+            const character = "#";
+            const count = 8;
+            const rows = [];
+            
+            for (let i = 0; i < count; i = i + 1) {
+                rows.push(i);
+            }
+
+            let result = ""///DEKL V "LOOPU" AMPAK DELUJE GLOBAL
+
+            for (const row of rows) {
+                 result = row + result;
+            }
+            console.log(result);
+            console.log("76543210");///output v lekciji //drži
+            console.log(result != 76543210);//poigram se //false
+            console.log(result == 76543210);//poigram se //true
+        </script>
+    </body>
+
+</html>
