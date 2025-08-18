@@ -9,34 +9,27 @@
 
     <body>
         <script>
-            const msg = "Joži je dabra bejba! \n";
-            console.log(msg.repeat(34));///en način
-
-            for (let j = 1; j <= 34; j++) {
-                // console.log(msg +[j]); ///AMATERSKO
-                console.log(`${msg} ${j}`);///PROFI
-            };///drug način (šteje interacije)
-
-
-            /////////freeCodeCamp//////
             const character = "#";
             const count = 8;
             const rows = [];
 
+            //FUNKCIJA
+            function padRow(rowNumber, rowCount) {
+                return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+            }
+             ///UPORABM FU
             for (let i = 0; i < count; i++) {
-                rows.push(character.repeat(i+1));
+                rows.push(padRow(i + 1, count));
             }
 
             let result = ""
 
+           // for of ...
             for (const row of rows) {
                 result = result + row + "\n";
             }
-            console.log(result);
 
-           for(let i=0;i<10;i++){
-            console.log(`${i} `+ "LA ".repeat(i+1));
-           }
+            console.log(result);//..in izpis
         </script>
     </body>
 
