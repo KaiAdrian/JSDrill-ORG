@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            //"n"
+            const character = "#";
+            const count = 8;
+            const rows = [];
+
+            for (let i = 0; i < count; i = i + 1) {
+                rows.push(i);
+            }
+
+            let result = "";
+
+            for (const row of rows) {
+                result = result + row + "\n";
+            }
+            console.log(result);/*
+            0
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+
+            */
+
+            //     Step 44Passed
+            // Printing numbers won't result in a visually appealing pyramid. Now that you're outputting the formatted content of your rows array, it's time to update your original loop.
+
+            // Instead of pushing i to the array, push the value of your character variable.   
+            for (let i = 0; i < count; i = i + 1) {
+                rows.push(character);// prej je  rows.push(i)
+            }
+            console.log(rows);///nova verzija
+        </script>
+    </body>
+
+</html>
