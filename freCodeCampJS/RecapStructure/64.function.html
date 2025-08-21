@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            ///GLOBAL
+            const character = "#";
+            const count = 8;
+            const rows = [];
+
+
+            ///func
+            // In order to know how to format a row, your padRow function will need to know which row number you are on, and how many rows in total are being generated.
+            function padRow(rowNumber, rowCount) {
+
+            }
+
+                        
+
+            // A function is called by referencing the function's name, and adding (). Here's how to call a test function:
+
+            // Example Code
+            // test();
+            // Replace the character.repeat(i + 1) in your .push() call with a function call for your padRow function. Do not add any arguments to it yet.
+            
+            /* rows.push(padRow())*/
+            
+            ///loops
+            for (let i = 0; i < count; i = i + 1) {
+                rows.push(character.repeat(i + 1))
+            }
+
+
+            let result = ""
+
+            for (const row of rows) {
+                result = result + row + "\n";
+            }
+            console.log(result);///izpis
+        </script>
+    </body>
+
+</html>
