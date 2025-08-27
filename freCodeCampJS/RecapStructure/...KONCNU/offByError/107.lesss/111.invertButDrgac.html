@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            const character = "#";
+            const count = 8;
+            const rows = [];
+
+            function padRow(rowNumber, rowCount) {
+                return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+            }
+
+            //             Step 111Passed
+            // Your pyramid is no longer inverted.This is because you are adding new rows to the end of the array.
+
+            // Update your loop body to add new rows to the beginning of the array.
+            for (let i = 1; i <= count; i++) {
+                rows.unshift(padRow(i, count));
+            }
+
+            
+            let result = ""
+
+            for (const row of rows) {
+                result = result + row + "\n";
+            }
+
+            console.log(result);
+        </script>
+    </body>
+
+</html>
