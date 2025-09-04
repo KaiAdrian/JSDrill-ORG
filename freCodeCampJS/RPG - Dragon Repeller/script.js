@@ -28,6 +28,36 @@ const monsterHealthText = document.querySelector("#monsterHealth");
 //     alert(`kliknu si "${button1.id}"`)
 // })
 
+const locations = []; //role-play  upd trenutno lokacijo junaka
+
+/*const cat = {		//PRVI OBJEKT
+	name: "Whiskers",
+	"Number of legs":4  
+}; */
+
+// There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
+//...in its name, you will need to use bracket notation.
+
+
+//initialize buttons
+button1.onclick = goStore; //DOT NOTATION NAČIN KLICA (brez oklepajev)
+button2.onclick = goCave;
+button3.onclick = fightDragon;
+
+function update(location) {
+	//TO AVOID REPET
+}
+function goTown() {
+	button1.innerText = "Go to store";
+	button2.innerText = "Go to cave";
+	button3.innerText = "Fight dragon";
+
+	button1.onclick = goStore;
+	button2.onclick = goCave;
+	button3.onclick = fightDragon;
+	text.innerText =
+		'You are in the town square. You see a sign that says "Store".';
+}
 function goStore() {
 	button1.innerText = "Buy 10 health (10 gold)";
 	button2.innerText = "Buy weapon (30 gold)";
@@ -44,11 +74,6 @@ function goCave() {
 function fightDragon() {
 	console.log("Fighting dragon.");
 }
-//initialize buttons
-button1.onclick = goStore; //DOT NOTATION NAČIN KLICA (brez oklepajev)
-button2.onclick = goCave;
-button3.onclick = fightDragon;
 
- function buyHealth(){};
- function buyWeapon(){};
- function goTown(){};
+function buyHealth() {}
+function buyWeapon() {}
