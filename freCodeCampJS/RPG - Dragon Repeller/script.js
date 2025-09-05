@@ -28,7 +28,12 @@ const monsterHealthText = document.querySelector("#monsterHealth");
 //     alert(`kliknu si "${button1.id}"`)
 // })
 
-const locations = []; //role-play  upd trenutno lokacijo junaka
+const locations = [
+	{
+		name: "town square",
+		"button text": ["Go to store", "Go to cave", "Fight dragon"],
+	},
+]; //role-play  upd trenutno lokacijo junaka
 
 /*const cat = {		//PRVI OBJEKT
 	name: "Whiskers",
@@ -37,7 +42,6 @@ const locations = []; //role-play  upd trenutno lokacijo junaka
 
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
-
 
 //initialize buttons
 button1.onclick = goStore; //DOT NOTATION NAČIN KLICA (brez oklepajev)
