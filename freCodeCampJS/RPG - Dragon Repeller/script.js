@@ -7,8 +7,6 @@ let fighting;
 let monsterHealth;
 let inventory = ["stick"];
 
-// One method for finding specific elements in your HTML is using the querySelector() method. The querySelector() method takes a CSS selector as an argument and returns the first element that matches that selector. For example, to find the <h1> element in your HTML, you would write:
-
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
@@ -33,14 +31,19 @@ const locations = [
 		name: "town square",
 		"button text": ["Go to store", "Go to cave", "Fight dragon"],
 		"button functions": [goStore, goCave, fightDragon],
-		text:'You are in the town square. You see a sign that says "Store".'
+		text: 'You are in the town square. You see a sign that says "Store".',
 	},
-]; //role-play  upd trenutno lokacijo junaka
-
-/*const cat = {		//PRVI OBJEKT
-	name: "Whiskers",
-	"Number of legs":4  
-}; */
+	{
+		name: "store",
+		"button text": [
+			"Buy 10 health (10 gold)",
+			"Buy weapon (30 gold)",
+			"Go to town square",
+		],
+		"button functions": [buyHealth, buyWeapon, goTown],
+		text: "You enter the store.",
+	},
+];
 
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
@@ -51,28 +54,21 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
-	//TO AVOID REPET
+	button1.innerText = location["button text"][0];
+	button2.innerText = location["button text"][1];
+	button3.innerText = location["button text"][2];
+
+	button1.onclick = location["button functions"][0];
+	button2.onclick = location["button functions"][1];
+	button3.onclick = location["button functions"][2];
+	text.innerText = location.text;
 }
 function goTown() {
-	button1.innerText = "Go to store";
-	button2.innerText = "Go to cave";
-	button3.innerText = "Fight dragon";
-
-	button1.onclick = goStore;
-	button2.onclick = goCave;
-	button3.onclick = fightDragon;
-	text.innerText =
-		'You are in the town square. You see a sign that says "Store".';
+	// Instead of assigning the innerText and onclick properties to specific strings and functions, the update function will use data from the location that is passed into it. First, that data needs to be passed
+	update(locations[0]);
 }
 function goStore() {
-	button1.innerText = "Buy 10 health (10 gold)";
-	button2.innerText = "Buy weapon (30 gold)";
-	button3.innerText = "Go to town square";
-
-	button1.onclick = buyHealth;
-	button2.onclick = buyWeapon;
-	button3.onclick = goTown;
-	text.innerText = "You enter the store.";
+	update(locations[1]);
 }
 function goCave() {
 	console.log("Going to cave.");
@@ -80,6 +76,7 @@ function goCave() {
 function fightDragon() {
 	console.log("Fighting dragon.");
 }
-
 function buyHealth() {}
 function buyWeapon() {}
+function fightSlime() {}
+function fightBeast() {}
