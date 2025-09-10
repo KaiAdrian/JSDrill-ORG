@@ -43,6 +43,12 @@ const locations = [
 		"button functions": [buyHealth, buyWeapon, goTown],
 		text: "You enter the store.",
 	},
+	{
+		name: "cave",
+		"button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+		"button functions": [fightSlime, fightBeast, goTown],
+		text: "You enter the cave. You see some monsters.",
+	},
 ];
 
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
@@ -71,12 +77,13 @@ function goStore() {
 	update(locations[1]);
 }
 function goCave() {
-	console.log("Going to cave.");
+	update(locations[2]);
 }
 function fightDragon() {
 	console.log("Fighting dragon.");
 }
-function buyHealth() {}
+function buyHealth() {
+	gold -=  10;
+	health += 10;
+}
 function buyWeapon() {}
-function fightSlime() {}
-function fightBeast() {}
