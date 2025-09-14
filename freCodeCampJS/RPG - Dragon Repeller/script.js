@@ -20,12 +20,11 @@ const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 const weapons = [
-	{ name:"stick",power:5},
-	{ name:"dagger",power:30},
-	{ name:"claw hammer",power:50},
-	{ name:"sword",power:100}
+	{ name: "stick", power: 5 },
+	{ name: "dagger", power: 30 },
+	{ name: "claw hammer", power: 50 },
+	{ name: "sword", power: 100 },
 ];
-
 
 // We have run into a slight problem. You are trying to query your page for a button element, but your script tag is in the head of your HTML. This means your code runs before the browser has finished reading the HTML, and your document.querySelector() will not see the button - because the browser hasn't processed it yet.
 //...closing </body> tag).
@@ -96,17 +95,18 @@ function buyHealth() {
 		health += 10;
 		goldText.innerText = gold;
 		healthText.innerText = health;
-	}
-	else {
+	} else {
 		text.innerText = "You do not have enough gold to buy health.";
 	}
 }
 function buyWeapon() {
-	if (gold>=30) {
+	if (gold >= 30) {
 		gold -= 30;
 		currentWeaponIndex++;
 		goldText.innerText = gold;
 		let newWeapon = weapons[currentWeaponIndex];
-		text.innerText = "You now have a new weapon.";
-	}
+		text.innerText = "You now have a " + newWeapon + ".";
+		inventory.push(newWeapon);
+		text.innerText += " In your inventory you have: " + inventory[0];
+	} else text.innerText = "You do not have enough gold to buy a weapon.";
 }
