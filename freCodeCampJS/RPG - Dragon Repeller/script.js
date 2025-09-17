@@ -27,20 +27,20 @@ const weapons = [
 ];
 const monsters = [
 	{
-	name:"slime",
-	level:2,
-	health:15
-},
+		name: "slime",
+		level: 2,
+		health: 15,
+	},
 	{
-	name:"fanged beast",
-	level:8,
-	health:60
-},
+		name: "fanged beast",
+		level: 8,
+		health: 60,
+	},
 	{
-	name:"dragon",
-	level:20,
-	health:300
-},
+		name: "dragon",
+		level: 20,
+		health: 300,
+	},
 ];
 
 // We have run into a slight problem. You are trying to query your page for a button element, but your script tag is in the head of your HTML. This means your code runs before the browser has finished reading the HTML, and your document.querySelector() will not see the button - because the browser hasn't processed it yet.
@@ -72,6 +72,12 @@ const locations = [
 		"button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
 		"button functions": [fightSlime, fightBeast, goTown],
 		text: "You enter the cave. You see some monsters.",
+	},
+	{
+		name: "fight",
+		"button text": ["Attack", "Dodge", "Run"],
+		"button functions": [attack, dodge, goTown],
+		text: "You are fighting a monster.",
 	},
 ];
 
@@ -137,10 +143,32 @@ function sellWeapon() {
 		text.innerText += " In your inventory you have: " + inventory;
 	} else text.innerText = "Don't sell your only weapon!";
 }
-function fightSlime() {}
-
-function fightBeast() {}
-function fightDragon() {
-	console.log("Fighting dragon.");
+function fightSlime() {
+	fighting = 0;
+	goFight();
 }
-function goFight(){}
+
+function fightBeast() {
+	fighting = 1;
+	goFight();
+}
+function fightDragon() {
+	fighting = 2;
+	goFight();
+}
+function goFight() {
+	update(locations[3]);
+	monsterHealth = monsters[fighting].health;
+	monsterStats = document.querySelector("#monsterStats");
+	monsterStats.style.display = "block";
+	monsterName.innerText = monsters[fighting].name;
+	monsterHealthText.innerText = monsterHealth;
+}
+function attack() {
+	text.innerText = "The " + monsters[fighting].name + " attacks.";
+	text.innerText +=
+		" You attack it with your " + weapons[currentWeaponIndex].name + ".";
+	health -= monsters[fighting].level;
+	monsterHealth -= weapons[currentWeaponIndex].power;
+}
+function dodge() {}
