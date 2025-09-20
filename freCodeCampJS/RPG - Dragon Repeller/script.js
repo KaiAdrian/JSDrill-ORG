@@ -79,8 +79,17 @@ const locations = [
 		"button functions": [attack, dodge, goTown],
 		text: "You are fighting a monster.",
 	},
+	{
+		name: "kill monster",
+		"button text": [
+			"Go to town square",
+			"Go to town square",
+			"Go to town square",
+		],
+		"button functions": [goTown, goTown, goTown],
+		text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
+	},
 ];
-
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
 
@@ -90,6 +99,7 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
+	monsterStats.style.display ="none";
 	button1.innerText = location["button text"][0];
 	button2.innerText = location["button text"][1];
 	button3.innerText = location["button text"][2];
@@ -176,6 +186,20 @@ function attack() {
 	monsterHealthText.innerText = monsterHealth;
 	if (health <= 0) {
 		lose();
+	} else if (monsterHealth <= 0) {
+		defeatMonster();
 	}
 }
-function dodge() {}
+function dodge() {
+	text.innerText = "You dodge the attack from the" + monsters[fighting].name;
+}
+function defeatMonster() {
+	gold += Math.floor(monsters[fighting].level * 6.7);
+	xp += monsters[fighting].level;
+	goldText.innerText = gold;
+	xpText.innerText = xp;
+	update(locations[4]);
+}
+function lose() {
+	update(locations[5]);
+}
