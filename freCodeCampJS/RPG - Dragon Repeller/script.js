@@ -89,6 +89,20 @@ const locations = [
 		"button functions": [goTown, goTown, goTown],
 		text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
 	},
+	{
+		name: "lose",
+		"button text": ["REPLAY?",
+			"REPLAY?",
+			"REPLAY?"],
+		"button functions": [restart, restart, restart],
+		text:"You die. &#x2620;"
+	}
+	
+	
+
+	// In a later step, you will update the code for the &#x2620; emoticon text to properly display on the page., set "button text" to an array with three "REPLAY?" strings, set "button functions" to an array with three restart variables, and set text to "You die. &#x2620;".
+
+	// In a later step, you will update the code for the &#x2620; emoticon text to properly display on the page.
 ];
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
@@ -99,7 +113,7 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
-	monsterStats.style.display ="none";
+	monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
 	button2.innerText = location["button text"][1];
 	button3.innerText = location["button text"][2];
@@ -202,4 +216,17 @@ function defeatMonster() {
 }
 function lose() {
 	update(locations[5]);
+
+	
+}
+function restart() {
+	xp = 0;
+	health = 100;
+	gold = 50;
+	currentWeaponIndex = 0;
+	inventory = ["stick"];
+	goldText.innerText = gold;
+	healthText.innerText = health;
+	xpText.innerText = xp;
+	goTown();
 }
