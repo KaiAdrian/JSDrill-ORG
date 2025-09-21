@@ -91,14 +91,10 @@ const locations = [
 	},
 	{
 		name: "lose",
-		"button text": ["REPLAY?",
-			"REPLAY?",
-			"REPLAY?"],
+		"button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
 		"button functions": [restart, restart, restart],
-		text:"You die. &#x2620;"
-	}
-	
-	
+		text: "You die. &#x2620;",
+	},
 
 	// In a later step, you will update the code for the &#x2620; emoticon text to properly display on the page., set "button text" to an array with three "REPLAY?" strings, set "button functions" to an array with three restart variables, and set text to "You die. &#x2620;".
 
@@ -201,9 +197,14 @@ function attack() {
 	if (health <= 0) {
 		lose();
 	} else if (monsterHealth <= 0) {
-		defeatMonster();
-	}
+		if (monsters[fighting].name === "dragon") {
+			if (fighting === 2) {
+				winGame();
+			}
+		}
+	} else defeatMonster();
 }
+
 function dodge() {
 	text.innerText = "You dodge the attack from the" + monsters[fighting].name;
 }
@@ -216,8 +217,6 @@ function defeatMonster() {
 }
 function lose() {
 	update(locations[5]);
-
-	
 }
 function restart() {
 	xp = 0;
