@@ -95,10 +95,12 @@ const locations = [
 		"button functions": [restart, restart, restart],
 		text: "You die. &#x2620;",
 	},
-
-	// In a later step, you will update the code for the &#x2620; emoticon text to properly display on the page., set "button text" to an array with three "REPLAY?" strings, set "button functions" to an array with three restart variables, and set text to "You die. &#x2620;".
-
-	// In a later step, you will update the code for the &#x2620; emoticon text to properly display on the page.
+	{
+		name: "win",
+		"button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+		"button functions": [restart, restart, restart],
+		text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;",
+	},
 ];
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
@@ -117,7 +119,7 @@ function update(location) {
 	button1.onclick = location["button functions"][0];
 	button2.onclick = location["button functions"][1];
 	button3.onclick = location["button functions"][2];
-	text.innerText = location.text;
+	text.innerHTML = location.text;
 }
 function goTown() {
 	// Instead of assigning the innerText and onclick properties to specific strings and functions, the update function will use data from the location that is passed into it. First, that data needs to be passed
@@ -217,6 +219,9 @@ function defeatMonster() {
 }
 function lose() {
 	update(locations[5]);
+}
+function winGame() {
+	update(locations[6]);
 }
 function restart() {
 	xp = 0;
