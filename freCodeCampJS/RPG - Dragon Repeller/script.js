@@ -101,6 +101,12 @@ const locations = [
 		"button functions": [restart, restart, restart],
 		text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;",
 	},
+	{
+		name: "easter egg",
+		"button text": ["2", "8", "Go to town square?"],
+		"button functions": [pickTwo, pickEight, goTown],
+		text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!",
+	},
 ];
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
@@ -124,6 +130,22 @@ function update(location) {
 function goTown() {
 	// Instead of assigning the innerText and onclick properties to specific strings and functions, the update function will use data from the location that is passed into it. First, that data needs to be passed
 	update(locations[0]);
+}
+function easterEgg() {
+	update(locations[7]);
+}
+function pickTwo() {
+	pick(2);
+}
+function pickEight() {
+	pick(8);
+}
+function pick(guess) {
+	const numbers = [];
+	while (numbers.length < 10) {
+		numbers.push(Math.floor(Math.random() * 11));
+	}
+	  text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
 }
 function goStore() {
 	update(locations[1]);
@@ -209,10 +231,10 @@ function attack() {
 			defeatMonster();
 		}
 	}
-	if (Math.random() <= .1) {
-		text.innerText += " Your " + inventory.pop() + "breaks."
+	if (Math.random() <= 0.1 && inventory.length !== 1) {
+		text.innerText += " Your " + inventory.pop() + "breaks.";
 		currentWeaponIndex--;
-  }
+	}
 }
 function getMonsterAttackValue(level) {
 	const hit = level * 5 - Math.floor(Math.random() * xp);
