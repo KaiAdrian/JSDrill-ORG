@@ -143,9 +143,15 @@ function pickEight() {
 function pick(guess) {
 	const numbers = [];
 	while (numbers.length < 10) {
-		numbers.push(Math.floor(Math.random() * 11));
+		numbers.push(Math.floor(Math.random() * 11)); //generira rnd
 	}
-	  text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+	text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+	for (let i = 0; i < 10; i++) {
+		text.innerText += numbers[i] + "\n"; ///sam izpiše arr
+	}
+	if (numbers.includes(guess)) {
+		
+	}
 }
 function goStore() {
 	update(locations[1]);
