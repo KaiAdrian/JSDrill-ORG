@@ -7,10 +7,12 @@ let fighting;
 let monsterHealth;
 let inventory = ["stick"];
 
+///KNAFI
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 
+///TEXT
 const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
@@ -19,6 +21,7 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
+///AREJI
 const weapons = [
 	{ name: "stick", power: 5 },
 	{ name: "dagger", power: 30 },
@@ -111,11 +114,12 @@ const locations = [
 // There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.// Dot notation is what you use when you know the name of the property you're trying to access ahead of time....
 //...in its name, you will need to use bracket notation.
 
-//initialize buttons
+//onclic funkcije
 button1.onclick = goStore; //DOT NOTATION NAČIN KLICA (brez oklepajev)
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+//funkcije
 function update(location) {
 	monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
@@ -286,3 +290,4 @@ function restart() {
 	xpText.innerText = xp;
 	goTown();
 }
+////
