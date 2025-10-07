@@ -10,5 +10,8 @@ let isError = false;
 
 //convert function
 function cleanInputString(str) {
-	const regex = /\+-/; ////REGEX!!!!
+	// const regex = /\+-\s/; ////REGEX!!!!Your current pattern won't work just yet. /+-\s/ looks for +, -, and a space in order. This would match '+- hello' but would not match +hello...character class
+	console.log("original string: " , str);
+	const regex = /[+-\s]/g;
+	return str.replace(regex, "");
 }
