@@ -19,6 +19,11 @@ function cleanInputString(str) {
 function isInvalidInput(str) {
 	const regex = // /[0-9]+e[0-9]+/i; //i flag, which stands for "insensitive"
 		/\d+e\d+/i;
-	return  str.match(regex);
+	return str.match(regex);
 }
-
+function addEntry() {
+	// Use concatenation to add a # to the beginning of the value property of entryDropdown, and assign that result to a  variable.
+	let targetId = "#" + entryDropdown.value;
+	
+	const targetInputContainer = document.querySelector(targetId + " .input-container");	
+}
