@@ -23,7 +23,12 @@ function isInvalidInput(str) {
 }
 function addEntry() {
 	// Use concatenation to add a # to the beginning of the value property of entryDropdown, and assign that result to a  variable.
-	let targetId = "#" + entryDropdown.value;
-	
-	const targetInputContainer = document.querySelector(targetId + " .input-container");	
+
+	// let targetId = "#" + entryDropdown.value;
+	// const targetInputContainer = document.querySelector(`${targetId} .input-container`);
+
+	const targetInputContainer = document.querySelector(
+		`#${entryDropdown.value} .input-container`
+	);
+	  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length;
 }
