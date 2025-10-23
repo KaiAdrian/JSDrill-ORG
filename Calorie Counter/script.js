@@ -30,7 +30,7 @@ function addEntry() {
 		`#${entryDropdown.value} .input-container`
 	);
 	const entryNumber =
-		targetInputContainer.querySelectorAll('input[type="text"]').length;
+		targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
 	const HTMLString = `
   <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
   <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
@@ -41,6 +41,13 @@ function addEntry() {
     id="${entryDropdown.value}-${entryNumber}-calories"
     placeholder="Calories"
   />`;
-	targetInputContainer.innerHTML += HTMLString;
+	targetInputContainer.insertAdjacentHTML("beforeend",HTMLString);
 }
-addEntryButton.addEventListener('click', addEntry);
+function getCaloriesFromInputs(list) {
+	let calories = 0;
+
+	for (const item of list) {
+		const currVal = item.value;
+	}
+}
+addEntryButton.addEventListener("click", addEntry);
