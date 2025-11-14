@@ -85,13 +85,13 @@ function calculateCalories(e) {
   <p>${consumedCalories} Calories Consumed</p>
   <p>${exerciseCalories} Calories Burned</p>
   `;
-	output.classList.remove('hide');
-// 	Finally, you need to make the #output element visible so the user can see your text. Your output variable is an Element, which has a classList property. This property has a .remove() method, which accepts a string representing the class to remove from the element.
+	output.classList.remove("hide");
+	// 	Finally, you need to make the #output element visible so the user can see your text. Your output variable is an Element, which has a classList property. This property has a .remove() method, which accepts a string representing the class to remove from the element.
 
-// Example Code
-// const paragraphElement = document.getElementById('paragraph');
-// paragraphElement.classList.remove('hide');
-// Use the .remove() method of the output variable's classList property to remove the hide class. Don't forget to place the word hide inside quotes.
+	// Example Code
+	// const paragraphElement = document.getElementById('paragraph');
+	// paragraphElement.classList.remove('hide');
+	// Use the .remove() method of the output variable's classList property to remove the hide class. Don't forget to place the word hide inside quotes.
 }
 function getCaloriesFromInputs(list) {
 	let calories = 0;
@@ -109,8 +109,17 @@ function getCaloriesFromInputs(list) {
 	return calories;
 }
 function clearForm() {
-	const inputContainers = document.querySelectorAll(".input-container");
+	const inputContainers = Array.from(
+		document.querySelectorAll(".input-container")
+	);
+	for ( let container of inputContainers) {
+		container.innerHTML = "";
+	}
+	budgetNumberInput.value = "";
+	output.innerText = "";
+	output.classList.add("hide");
 }
 //event listnerji
 addEntryButton.addEventListener("click", addEntry);
 calorieCounter.addEventListener("submit", calculateCalories);
+clearButton.addEventListener("click", clearForm);
