@@ -39,7 +39,7 @@ function studentMsg(totalScores, studentScore) {
 	//     ? "You passed the course."
 	//     : "You failed the course.";
 	//   return msg;
-	const average = getAverage(totalScores);
+	const average = getAverage(totalScores); 
 	const grade = getGrade(studentScore);
 	const passed = hasPassingGrade(studentScore);
 
