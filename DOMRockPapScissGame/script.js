@@ -17,9 +17,9 @@ function hasPlayerWonTheRound(player, computer) {
 		(player === "Paper" && computer === "Rock")
 	);
 }
-console.log(hasPlayerWonTheRound("Rock", "Scissors"));
-console.log(hasPlayerWonTheRound("Scissors", "Rock"));
-console.log(hasPlayerWonTheRound("Paper", "Rock"));
+// console.log(hasPlayerWonTheRound("Rock", "Scissors"));
+// console.log(hasPlayerWonTheRound("Scissors", "Rock"));
+// console.log(hasPlayerWonTheRound("Paper", "Rock"));
 
 function getRoundResults(userOption) {
 	const computerResult = getRandomComputerResult();
@@ -37,10 +37,22 @@ function getRoundResults(userOption) {
   } else if (computerResult === userOption) {
     return `It's a tie! Both chose ${userOption}`;
   } else {
-    computerScore++;
+	  computerScore++;
     return `Computer wins! ${computerResult} beats ${userOption}`;
   }
 }
+// console.log(getRoundResults("Rock"));
+// console.log("Player Score: ", playerScore, "Computer Score: ", computerScore);
 
-console.log(getRoundResults("Rock"));
-console.log("Player Score: ", playerScore, "Computer Score: ", computerScore);
+//Global
+const playerScoreSpanElement = document.getElementById("player-score");
+const computerScoreSpanElement = document.getElementById("computer-score");
+const roundResultsMsg = document.getElementById("results-msg");
+
+function showResults(userOption) {
+  roundResultsMsg.innerText = getRoundResults(userOption);
+	playerScoreSpanElement.innerText = playerScore;
+	computerScoreSpanElement.innerText = computerScore;
+	
+};
+showResults("Rock");
