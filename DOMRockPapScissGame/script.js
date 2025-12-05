@@ -8,7 +8,7 @@ function getRandomComputerResult() {
 	const randomIndex = Math.floor(Math.random() * options.length);
 	return options[randomIndex];
 }
-console.log(getRandomComputerResult());
+// console.log(getRandomComputerResult());
 
 function hasPlayerWonTheRound(player, computer) {
 	return (
@@ -65,4 +65,45 @@ function showResults(userOption) {
 		optionsContainer.style.display = "none";
 	}
 }
-showResults("Rock");
+// showResults("Rock");
+function resetGame() {
+	playerScore = 0;
+	computerScore = 0;
+
+	playerScoreSpanElement.innerText = playerScore;
+	computerScoreSpanElement.innerText = computerScore;
+
+	roundResultsMsg.innerText = "";
+	winnerMsgElement.innerText = "";
+
+	optionsContainer.style.display = "block";
+	resetGameBtn.style.display = "none";
+
+	// ✔️ Najlepša verzija (če želiš "pro" stil)
+
+	// [playerScore, computerScore] = [0, 0];
+	// [playerScoreSpanElement.innerText, computerScoreSpanElement.innerText] = [
+	// 	0, 0,
+	// ];
+	// [winnerMsgElement.innerText, roundResultsMsg.innerText] = ["", ""];
+
+	// optionsContainer.style.display = "block";
+	// resetGameBtn.style.display = "none";
+}
+
+// 6. Event listenerji za gumbe
+document.getElementById("rock-btn").addEventListener("click", function () {
+  showResults("Rock");
+});
+
+document.getElementById("paper-btn").addEventListener("click", function () {
+  showResults("Paper");
+});
+
+document.getElementById("scissors-btn").addEventListener("click", function () {
+  showResults("Scissors");
+});
+
+resetGameBtn.addEventListener("click", resetGame);
+// Za vsak slučaj: na začetku skrij reset gumb
+resetGameBtn.style.display = "none";
