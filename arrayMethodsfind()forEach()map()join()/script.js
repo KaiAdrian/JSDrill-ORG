@@ -80,12 +80,18 @@ const allSongs = [
 		src: "https://cdn.freecodecamp.org/curriculum/js-music-player/chasing-that-feeling.mp3",
 	},
 ];
+
 const audio = new Audio();
 let userData = {
 	songs: [...allSongs],
 	currentSong: null,
 	songCurrentTime: 0,
 };
+
+const playSong = id => { 
+
+};
+
 // const printGreeting = () => {
 // 	console.log("Hello there!");
 // };
@@ -131,3 +137,4 @@ const sortSongs = () => {
 	});
 	return userData?.songs;
 };
+renderSongs(sortSongs());
