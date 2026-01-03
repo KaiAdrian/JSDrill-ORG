@@ -1,5 +1,3 @@
-// #playlist-songs, #play, and #pause elements with the getElementById() method. Assign them to variables playlistSongs, playButton and pauseButton respectively.
-
 //html elem
 const playlistSongs = document.getElementById("playlist-songs");
 const playButton = document.getElementById("play");
@@ -102,8 +100,10 @@ const playSong = (id) => {
 	audio.play();
 };
 
-const pauseSong = () => { 
+const pauseSong = () => {
 	userData.songCurrentTime = audio.currentTime;
+	playButton.classList.remove("playing");
+	audio.pause();
 };
 
 // const printGreeting = () => {
@@ -138,11 +138,18 @@ const renderSongs = (array) => {
 		.join("");
 	playlistSongs.innerHTML = songsHTML;
 };
-/*
 
-/ renderSongs(userData?.songs);/////ČEKIRIIIIII!!!!!!
-*/
+const getCurrentSongIndex = () => {
+	// const animals = ["dog", "cat", "horse"];
+	// console.log(`dog: ${animals.indexOf("dog")}`);//0
+	// console.log(`cat ${animals.indexOf("cat")}`);// 1
+	// console.log(`horse: ${animals.indexOf("horse")}`);//2
+	// console.log(`pig: ${animals.indexOf("pig")}`);//-1
+	// console.log(`zajc: ${animals.indexOf("zajc")}`);//-1
+	return userData?.songs.indexOf(userData?.currentSong);
+};
 
+//EVENT LISTNERJI
 playButton.addEventListener("click", () => {
 	if (userData?.currentSong === null) {
 		playSong(userData?.songs[0].id);
@@ -150,6 +157,7 @@ playButton.addEventListener("click", () => {
 		playSong(userData?.currentSong.id);
 	}
 });
+pauseButton.addEventListener("click", pauseSong);
 
 const sortSongs = () => {
 	userData?.songs.sort((a, b) => {
@@ -162,6 +170,5 @@ const sortSongs = () => {
 		return 0;
 	});
 	return userData?.songs;
-}
+};
 renderSongs(sortSongs());
-//hello test
