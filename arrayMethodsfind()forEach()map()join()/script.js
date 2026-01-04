@@ -106,6 +106,16 @@ const pauseSong = () => {
 	audio.pause();
 };
 
+const playNextSong = () => {
+	if (userData?.currentSong === null) {
+		playSong(userData?.songs[0].id);
+		// }Add an else block to the if statement. Inside the else block, call the getCurrentSongIndex() function and assign it to a constant named currentSongIndex.
+	} else {
+		const currentSongIndex = getCurrentSongIndex();
+		const nextSong = userData?.songs[currentSongIndex + 1];
+		playSong(nextSong.id);
+	}
+};
 // const printGreeting = () => {
 // 	console.log("Hello there!");
 // };
@@ -158,6 +168,7 @@ playButton.addEventListener("click", () => {
 	}
 });
 pauseButton.addEventListener("click", pauseSong);
+nextButton.addEventListener("click", playNextSong);
 
 const sortSongs = () => {
 	userData?.songs.sort((a, b) => {
