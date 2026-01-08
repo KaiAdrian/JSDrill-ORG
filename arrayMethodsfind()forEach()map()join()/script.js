@@ -6,6 +6,7 @@ const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const shuffleButton = document.getElementById("shuffle");
 
+//GLOBAL ARR
 const allSongs = [
 	{
 		id: 0,
@@ -78,14 +79,15 @@ const allSongs = [
 		src: "https://cdn.freecodecamp.org/curriculum/js-music-player/chasing-that-feeling.mp3",
 	},
 ];
-
 const audio = new Audio();
+//uporabnikova kopija  ...spread
 let userData = {
 	songs: [...allSongs],
 	currentSong: null,
 	songCurrentTime: 0,
 };
 
+//funkcije predvajanja
 const playSong = (id) => {
 	const song = userData?.songs.find((song) => song.id === id);
 	audio.src = song.src;
@@ -99,35 +101,35 @@ const playSong = (id) => {
 	playButton.classList.add("playing");
 	audio.play();
 };
-
 const pauseSong = () => {
 	userData.songCurrentTime = audio.currentTime;
 	playButton.classList.remove("playing");
 	audio.pause();
 };
-
 const playNextSong = () => {
 	if (userData?.currentSong === null) {
 		playSong(userData?.songs[0].id);
-		// }Add an else block to the if statement. Inside the else block, call the getCurrentSongIndex() function and assign it to a constant named currentSongIndex.
 	} else {
 		const currentSongIndex = getCurrentSongIndex();
 		const nextSong = userData?.songs[currentSongIndex + 1];
 		playSong(nextSong.id);
 	}
 };
-// const printGreeting = () => {
-// 	console.log("Hello there!");
-// };
-// const printMessage = org => {
-// 	console.log(`${org} is awesome!`);
-// }
-// printMessage("freeCodeCamp");
+const playPreviousSong = () => {
+	if (userData?.currentSong === null) {
+		return;
+	} else {
+		const currentSongIndex = getCurrentSongIndex();
+		const previousSong = userData?.songs[currentSongIndex - 1];
+		playSong(previousSong.id);
+	}
+};
 
-// const addTwoNumbers = (num1, num2) =>
-// 	 num1 + num2;
-
-// console.log(addTwoNumbers(3, 4));
+//druge funkcije
+const highlightCurrentSong = () => {
+	const playlistSongElements = document.querySelectorAll(".playlist-song");
+};
+//gener. HTML-ja
 const renderSongs = (array) => {
 	const songsHTML = array
 		.map((song) => {
@@ -148,7 +150,7 @@ const renderSongs = (array) => {
 		.join("");
 	playlistSongs.innerHTML = songsHTML;
 };
-
+//indeks za funkc.predvajanja
 const getCurrentSongIndex = () => {
 	// const animals = ["dog", "cat", "horse"];
 	// console.log(`dog: ${animals.indexOf("dog")}`);//0
@@ -169,7 +171,9 @@ playButton.addEventListener("click", () => {
 });
 pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
+previousButton.addEventListener("click", playPreviousSong);
 
+//sort. po ABC redu
 const sortSongs = () => {
 	userData?.songs.sort((a, b) => {
 		if (a.title < b.title) {
