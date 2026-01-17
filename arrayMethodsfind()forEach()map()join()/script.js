@@ -128,7 +128,13 @@ const playPreviousSong = () => {
   }
 };
 const shuffle = () => {
-  userData?.songs.sort(() => Math.random - 0.5);
+  userData?.songs.sort(() => Math.random() - 0.5);
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
+  renderSongs(userData?.songs);
+  pauseSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
 };
 
 //druge funkcije
@@ -202,6 +208,7 @@ playButton.addEventListener("click", () => {
 pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
 previousButton.addEventListener("click", playPreviousSong);
+shuffleButton.addEventListener("click", shuffle);
 
 //sort. po ABC redu
 const sortSongs = () => {
@@ -217,6 +224,3 @@ const sortSongs = () => {
   return userData?.songs;
 };
 renderSongs(sortSongs());
-playButton.addEventListener("click", () => {
-  console.log("Pritisni brez extenšnov");
-});
