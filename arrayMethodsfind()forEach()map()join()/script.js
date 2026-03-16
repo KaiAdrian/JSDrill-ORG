@@ -155,7 +155,7 @@ const deleteSong = (id) => {
   }
   userData.songs = userData?.songs.filter((song) => song.id !== id);
   renderSongs(userData?.songs);
-  highlightCurrentSong();///
+  highlightCurrentSong();
   setPlayButtonAccessibleText();
 };
 const highlightCurrentSong = () => {
@@ -180,7 +180,7 @@ const renderSongs = (array) => {
 		 <span class="playlist-song-artist">${song.artist}</span>
 		 <span class="playlist-song-duration">${song.duration}</span>
 		</button>
-		<button 
+		<button onclick="deleteSong(${song.id})"
   class="playlist-song-delete"
   aria-label="Delete ${song.title}"
 >
@@ -190,6 +190,13 @@ const renderSongs = (array) => {
     })
     .join("");
   playlistSongs.innerHTML = songsHTML;
+
+  if (userData?.songs.length === 0) {
+    const resetButton = document.createElement(resetButton);
+    const resetText = document.createTextNode("Reset Playlist");
+    resetButton.id = "reset";
+    resetButton.ariaLabel.setAttribute("aria-label","Reset playlist")
+  }
 };
 const setPlayButtonAccessibleText = () => {
   const song = userData?.currentSong || userData?.songs[0];
