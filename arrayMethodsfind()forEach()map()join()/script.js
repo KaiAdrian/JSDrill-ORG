@@ -192,10 +192,15 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 
   if (userData?.songs.length === 0) {
-    const resetButton = document.createElement(resetButton);
+    const resetButton = document.createElement("button");
     const resetText = document.createTextNode("Reset Playlist");
     resetButton.id = "reset";
-    resetButton.ariaLabel.setAttribute("aria-label","Reset playlist")
+    resetButton.ariaLabel = "Reset playlist";
+    resetButton.appendChild(resetText);
+    playlistSongs.appendChild(resetButton);
+    resetButton.addEventListener("click", () => {
+    userData.songs = [...allSongs];
+    });
   }
 };
 const setPlayButtonAccessibleText = () => {
@@ -206,15 +211,15 @@ const setPlayButtonAccessibleText = () => {
   );
 };
 //indeks za funkc.predvajanja
-const getCurrentSongIndex = () => {
+const getCurrentSongIndex = () => 
   // const animals = ["dog", "cat", "horse"];
   // console.log(`dog: ${animals.indexOf("dog")}`);//0
   // console.log(`cat ${animals.indexOf("cat")}`);// 1
   // console.log(`horse: ${animals.indexOf("horse")}`);//2
   // console.log(`pig: ${animals.indexOf("pig")}`);//-1
   // console.log(`zajc: ${animals.indexOf("zajc")}`);//-1
-  return userData?.songs.indexOf(userData?.currentSong);
-};
+  userData?.songs.indexOf(userData?.currentSong);
+
 
 //EVENT LISTNERJI
 playButton.addEventListener("click", () => {
