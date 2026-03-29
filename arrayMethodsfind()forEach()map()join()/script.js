@@ -116,6 +116,12 @@ const playNextSong = () => {
     const currentSongIndex = getCurrentSongIndex();
     const nextSong = userData?.songs[currentSongIndex + 1];
     playSong(nextSong.id);
+
+    if (nextSongExists) {
+      const nextSong = userData.songs[currentSongIndex + 1];
+
+      playSong(nextSong.id);
+    }
   }
 };
 const playPreviousSong = () => {
@@ -199,7 +205,10 @@ const renderSongs = (array) => {
     resetButton.appendChild(resetText);
     playlistSongs.appendChild(resetButton);
     resetButton.addEventListener("click", () => {
-    userData.songs = [...allSongs];
+      userData.songs = [...allSongs];
+      renderSongs(sortSongs());
+      setPlayButtonAccessibleText();
+      resetButton.remove();
     });
   }
 };
@@ -211,7 +220,7 @@ const setPlayButtonAccessibleText = () => {
   );
 };
 //indeks za funkc.predvajanja
-const getCurrentSongIndex = () => 
+const getCurrentSongIndex = () =>
   // const animals = ["dog", "cat", "horse"];
   // console.log(`dog: ${animals.indexOf("dog")}`);//0
   // console.log(`cat ${animals.indexOf("cat")}`);// 1
@@ -219,7 +228,6 @@ const getCurrentSongIndex = () =>
   // console.log(`pig: ${animals.indexOf("pig")}`);//-1
   // console.log(`zajc: ${animals.indexOf("zajc")}`);//-1
   userData?.songs.indexOf(userData?.currentSong);
-
 
 //EVENT LISTNERJI
 playButton.addEventListener("click", () => {
@@ -233,6 +241,21 @@ pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
 previousButton.addEventListener("click", playPreviousSong);
 shuffleButton.addEventListener("click", shuffle);
+audio.addEventListener("ended", () => {
+  const currentSongIndex = getCurrentSongIndex();
+  // const nextSongExists = userData.songs.length - 1 > currentSongIndex;
+  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
+  if (nextSongExists) {
+    playNextSong();
+  } else {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+    setPlayerDisplay();
+    highlightCurrentSong();
+    setPlayButtonAccessibleText();
+  }
+});
 
 //sort. po ABC redu
 const sortSongs = () => {
