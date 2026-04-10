@@ -1,0 +1,46 @@
+/*knafi*/
+button {
+  margin: 20px;
+  padding: 8px 16px;
+  border: none;
+  font: sans-serif 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+/*knafi  "toglič"*/
+#toggleBtn {
+  border-radius: 15px;
+  background-color: rgb(226, 221, 226);
+}
+#toggleBtn:hover {
+  filter: brightness(1.05);
+}
+#toggleBtn:active {
+  transform: translateY(1px);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+/*  js za "togliča"*/
+.on {
+  background-color: rgb(43, 226, 49);
+  color: rgb(190, 14, 14);
+  font: italic bold 20px Arial, sans-serif;
+}
+
+/*****************/
+.left-btn_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.left-btn_menu button {
+  border-radius: 5px;
+  border-radius: 5px;
+  transition: background-color 0.25s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.left-btn_menu button:hover {
+  background-color: rgb(226, 221, 226);
+  transform: translateX(6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

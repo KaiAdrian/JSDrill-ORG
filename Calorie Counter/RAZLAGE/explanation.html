@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pojasnilo DOM strukture</title>
+  <style>
+    body {
+      font-family: Consolas, monospace;
+      background-color: #0d1117;
+      color: #e6edf3;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .indent {
+      margin-left: 2rem;
+      border-left: 2px solid #30363d;
+      padding-left: 1rem;
+    }
+    .highlight {
+      color: #ffa657;
+      font-weight: bold;
+    }
+    .code {
+      background-color: #161b22;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      display: inline-block;
+      color: #79c0ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧩 DOM struktura (poenostavljena)</h2>
+
+  <pre>
+&lt;form id="calorie-counter"&gt;
+│
+├── &lt;fieldset id="breakfast"&gt;
+│     ├── &lt;legend&gt;Breakfast&lt;/legend&gt;
+│     └── &lt;div class="input-container"&gt;&lt;/div&gt;   ← <span class="highlight">🟡 to iščemo</span>
+│
+├── &lt;fieldset id="lunch"&gt;
+│     ├── &lt;legend&gt;Lunch&lt;/legend&gt;
+│     └── &lt;div class="input-container"&gt;&lt;/div&gt;
+│
+├── &lt;fieldset id="dinner"&gt;
+│     ├── &lt;legend&gt;Dinner&lt;/legend&gt;
+│     └── &lt;div class="input-container"&gt;&lt;/div&gt;
+│
+└── (drugi fieldseti: snacks, exercise ...)
+  </pre>
+
+  <h2>🧠 Kaj pomenijo spremenljivke</h2>
+
+  <table border="1" cellspacing="0" cellpadding="8">
+    <tr>
+      <th>Spremenljivka</th>
+      <th>Vrednost</th>
+      <th>Pomen</th>
+    </tr>
+    <tr>
+      <td><code>entryDropdown.value</code></td>
+      <td>"breakfast"</td>
+      <td>uporabnikova izbira iz menija</td>
+    </tr>
+    <tr>
+      <td><code>targetId</code></td>
+      <td>"#breakfast"</td>
+      <td>označuje celoten &lt;fieldset&gt;</td>
+    </tr>
+    <tr>
+      <td><code>targetId + " .input-container"</code></td>
+      <td>"#breakfast .input-container"</td>
+      <td><em>pot do otroka znotraj fieldseta</em></td>
+    </tr>
+    <tr>
+      <td><code>document.querySelector(targetId + " .input-container")</code></td>
+      <td>➡️ referenca na &lt;div class="input-container"&gt;</td>
+      <td>tvoj cilj v DOM-u</td>
+    </tr>
+  </table>
+
+  <h2>🧭 Kaj se zgodi v praksi</h2>
+  <div class="indent">
+    <p>1️⃣ Uporabnik v dropdownu izbere <strong>"Breakfast"</strong></p>
+    <p>2️⃣ JavaScript ustvari: <span class="code">const targetId = "#breakfast";</span></p>
+    <p>3️⃣ Nato pokliče: <span class="code">document.querySelector(targetId + " .input-container");</span></p>
+    <p>Brskalnik prebere: <strong>#breakfast .input-container</strong> in poišče ustrezen element.</p>
+  </div>
+
+  <h2>✅ Povzetek</h2>
+  <ul>
+    <li><code>targetId</code> = osnova (glavni element po ID-ju)</li>
+    <li><code>.input-container</code> = cilj v notranjosti</li>
+    <li>Skupaj tvorita natančno <em>pot do elementa</em> v DOM-u</li>
+    <li><code>querySelector()</code> deluje kot “navigator” po tej poti</li>
+  </ul>
+
+</body>
+</html>
