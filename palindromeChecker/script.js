@@ -12,9 +12,18 @@ checkBtn.addEventListener("click", () => {
     alert("Please input a value");
     console.log("Please input a value");
   }
-   else {
-    const cleaned = input.value.toLowerCase();
-    // result.innerText=`${cleaned} is a palindrome `
-    result.innerText=`${input.value} is a palindrome `
+  const cleaned = input.value
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
+  const reversed = cleaned
+    .split("")
+    .reverse()
+    .join("");
+
+  if (cleaned === reversed) {
+    result.innerText = `${input.value} is a palindrome`;
+  } else {
+    result.innerText = `${input.value} is not a palindrome`;
   }
 });
