@@ -2,9 +2,13 @@ const messageInput = document.getElementById("message-input");
 const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
-const helpRegex = /please help/i; //i pomeni 'ignore caseSensetive'
+const helpRegex = /please help|assist me/i; //i pomeni 'ignore caseSensitive'
+const dollarRegex = /dollars/i;
+const denyList = [helpRegex, dollarRegex];
 
-const isSpam = (msg) => false;
+//const isSpam = (msg) => helpRegex.test(msg); //vrne true ali false
+// const isSpam = (msg) =>msg.match(helpRegex);///vrne truthy ali null
+const isSpam = (msg) => denyList.some((regex) => regex.test(msg));
 
 checkMessageButton.addEventListener("click", () => {
   if (messageInput.value.trim() === "") {
