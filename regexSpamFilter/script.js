@@ -3,7 +3,7 @@ const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
 const helpRegex = /please help|assist me/i; //i pomeni 'ignore caseSensitive'
-const dollarRegex = /dollars/i;
+const dollarRegex = /[0-9]+ (hundred|thousand|million|billion) /dollars/i;
 const denyList = [helpRegex, dollarRegex];
 
 //const isSpam = (msg) => helpRegex.test(msg); //vrne true ali false
