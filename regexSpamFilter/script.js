@@ -5,9 +5,10 @@ const checkMessageButton = document.getElementById("check-message-btn");
 const helpRegex = /please help|assist me/i; //i pomeni 'ignore caseSensitive'
 const dollarRegex = /[0-9]+\s*(?:hundred|thousand|million|billion)?\s+dollars/i;
 const freeRegex = /(?:^|\s)fr[e3][e3] m[o0]n[e3]y(?:$|\s)/i;
-const stockRegex = /stock alert/i;
+const stockRegex = /(?:^|\s)[s5][t7][o0][c{[(]k [a@4]l[e3]r[t7](?:$|\s)/i;
+const dearRegex = /dear friend/i;
 
-const denyList = [helpRegex, dollarRegex, freeRegex,stockRegex];
+const denyList = [helpRegex, dollarRegex, freeRegex, stockRegex,dearRegex];
 //const isSpam = (msg) => helpRegex.test(msg); //vrne true ali false
 // const isSpam = (msg) =>msg.match(helpRegex);///vrne truthy ali null
 const isSpam = (msg) => denyList.some((regex) => regex.test(msg));
