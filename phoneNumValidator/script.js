@@ -11,12 +11,21 @@ const result = document.getElementById("results-div");
 // 5555555555
 // 555-555-5555
 // (555)555-5555
+const phoneRegex = /^1?\s?(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/;
 
-checkBtn.addEventListener("click", () => {
-  if (input.value.trim() === "") {
+const validFormats = checkBtn.addEventListener("click", () => {
+  const phoneNumber = input.value.trim(); ///shranimo vrednost inputa
+  if (phoneNumber === "") {
     alert("Please provide a phone number");
+    return;
+  }
+  if (phoneRegex.test(phoneNumber)) {
+    result.textContent = `Valid US number: ${phoneNumber}`;
+  } else {
+    result.textContent = `Invalid US number: ${phoneNumber}`;
   }
 });
 clearBtn.addEventListener("click", () => {
+  input.value=""
   result.innerHTML = "";
 });
