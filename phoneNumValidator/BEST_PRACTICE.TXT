@@ -1,0 +1,7 @@
+⚠️ BEST PRACTICE
+
+Če delaš validator (kot tvoj phone project):
+
+👉 vedno eksplicitno:
+
+regex.test(input.value)

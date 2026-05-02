@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const preveri = (vnos, str) => vnos.test(str);
+
+      let val1 = /cat/;
+      niz1 = /cat/;
+
+      let val2 = /mačk/;
+      /*
+            console.log(preveri(val1, niz1));
+            console.log(preveri(val2, niz1)); //false
+
+            let novaVal = /cat|dog/;
+            console.log(preveri(novaVal, "dog")); //true
+            console.log(preveri(novaVal, "cat")); //true
+            console.log(preveri(novaVal, val2)); //false
+      */
+      //3️⃣ Najdi vse številke
+      // 👉 uporabi \d
+      // /\d/
+      novaVal = /1/;
+      console.log("preveri(/\d/, novaVal=>", preveri(/\d/, novaVal));
+      console.log("preveri(/\d/, '123'=>", preveri(/\d/, "123"));
+      let regex = /\d/;
+      console.log("regex.test('cat') //let regex = /\d/=>", regex.test("cat"));
+      console.log("regex.test(/cat|dog/)", regex.test(/cat|dog/));
+      console.log("regex.test(novaVal) // po novem=1", regex.test(novaVal));
+
+      console.log("/[a-z]/.test('mačk')=>", /[a-z]/.test("mačk"));
+      console.log("/[a-z]/.test('123')=>", /[a-z]/.test("123"));
+      //
+
+      console.log("/[a-z]/.test(/123/)=>", /[a-z]/.test(/123/));
+      /*
+            👉 ali string "/123/" vsebuje črko?
+            ➡️ false
+
+            ⚠️ ampak to je “fake pravilen” primer — ker:
+
+            nisi testiral številke
+            ampak string "/123/"
+            */
+      console.log(/[a-z]/.test(true));
+      //
+      console.log("/[a-z]/.test(123)=>", /[a-z]/.test(123));
+
+      // const strNumTest = () => {
+      //   return /[a-z]/.test(123);
+      // };
+      (" console.log(strNumTest());");
+
+      const ifTrueReturnVal = (regex, testVal) => {
+        //regRule,regValZaTest
+        return regex.test(testVal) ? testVal.match(regex) : "ni vrednosti";
+      };
+      console.log(ifTrueReturnVal(/[a-z]/, "mačk")); //true +return input
+      console.log(ifTrueReturnVal(/[a-z]/, 34)); //false NI return a
+      //       ⚠️ BONUS (zelo pomembno)
+      // Če želiš vse zadetke, moraš dodati g:
+      // "mačk".match(/[a-z]/g)
+      // ➡️
+      // ["m","a","k"]
+      // 👉 č ne pride zraven, ker:
+      // [a-z] pokriva samo ASCII
+      // ne vključuje šumnikov
+    </script>
+  </body>
+</html>
