@@ -70,38 +70,67 @@
       // 👉 č ne pride zraven, ker:
       // [a-z] pokriva samo ASCII
       // ne vključuje šumnikov
-      console.log("ifTrueReturnVal(/\D/, '123')",ifTrueReturnVal(/\D/, '123'));
-      console.log("ifTrueReturnVal(/\D/, 'abc123')",ifTrueReturnVal(/\D/, 'abc123'));
-      console.log("ifTrueReturnVal(/\D/, 'abc')",ifTrueReturnVal(/\D/, 'abc'));
-      console.log("ifTrueReturnVal(/\d/, 'mačk')",ifTrueReturnVal(/\d/, "mačk"));
-      console.log("ifTrueReturnVal(/\D/, 'mačk')",ifTrueReturnVal(/\D/, "mačk"));
+      //  console.log("ifTrueReturnVal(/\D/, '123')",ifTrueReturnVal(/\D/, '123'));
+      // console.log("ifTrueReturnVal(/\D/, 'abc123')",ifTrueReturnVal(/\D/, 'abc123'));
+      // console.log("ifTrueReturnVal(/\D/, 'abc')",ifTrueReturnVal(/\D/, 'abc'));
+      // console.log("ifTrueReturnVal(/\d/, 'mačk')",ifTrueReturnVal(/\d/, "mačk"));
+      // console.log("ifTrueReturnVal(/\D/, 'mačk')",ifTrueReturnVal(/\D/, "mačk"));
 
-      console.log("/\d+/.test('1234')",/\d+/.test('1234'))
-      console.log("/\d*/.test('1234')",/\d*/.test('1234'))
-      console.log("/\d*/.test('1')",/\d*/.test('1'))
+      // console.log("/\d+/.test('1234')",/\d+/.test('1234'))
+      // //console.log("/\d*/.test('1234')",/\d*/.test('1234'))
+      // //console.log("/\d*/.test('1')",/\d*/.test('1'))
 
-      console.log("/\d{5}/.test('123a')",/\d{5}/.test('123a'))
-      console.log("/\d{4}/.test('123a')",/\d{4}/.test('123a'))
-      console.log("/\d{3}/.test('123a')",/\d{3}/.test('123a'))
-      console.log("/\D{3}/.test('123a')",/\D{3}/.test('123a'))
-      console.log("/\D{1}/.test('123a')",/\D{1}/.test('123a'))
+      // console.log("/\d{5}/.test('123a')",/\d{5}/.test('123a'))
+      // console.log("/\d{4}/.test('123a')",/\d{4}/.test('123a'))
+      // console.log("/\d{3}/.test('123a')",/\d{3}/.test('123a'))
+      // console.log("/\D{3}/.test('123a')",/\D{3}/.test('123a'))
+      // console.log("/\D{1}/.test('123a')",/\D{1}/.test('123a'))
 
-      console.log("/^a/.test('123a')",/^a/.test('123a'))
-      console.log("/^2/.test('123a')",/^2/.test('123a'))
-      console.log("/^1/.test('123a')",/^1/.test('123a'))
-      console.log("/a$/.test('123a')",/a$/.test('123a'))
-      console.log("/3a$/.test('123a')",/3a$/.test('123a'))
-      console.log("/13a$/.test('123a')",/13a$/.test('123a'))
-      console.log("/123a$/.test('123a')",/123a$/.test('123a'))
+      // console.log("/^a/.test('123a')",/^a/.test('123a'))
+      // console.log("/^2/.test('123a')",/^2/.test('123a'))
+      // console.log("/^1/.test('123a')",/^1/.test('123a'))
+      // console.log("/a$/.test('123a')",/a$/.test('123a'))
+      // console.log("/3a$/.test('123a')",/3a$/.test('123a'))
+      // console.log("/13a$/.test('123a')",/13a$/.test('123a'))
+      // console.log("/123a$/.test('123a')",/123a$/.test('123a'))
 
-      console.log("/123a$/.test('34344123a')",/123a$/.test('34344123a'))
+      // console.log("/123a$/.test('34344123a')",/123a$/.test('34344123a'))
 
-      console.log("/^123a$/.test('34344123a')",/^123a$/.test('34344123a'))
-      console.log("/^123a*.123a$/.test('123a43343123a')",/^123a.*123a$/.test('123a43343123a'))
-      console.log("/kura?c/.test('kurc')",/kura?c/.test('kurc'))
-      console.log("/kura?c/.test('kurac')",/kura?c/.test('kurac'))
-      console.log("/kura?c/.test('krc')",/kura?c/.test('krc'))
-      console.log("/kura?c/.test('krac')",/kura?c/.test('krac'))
+      // console.log("/^123a$/.test('34344123a')",/^123a$/.test('34344123a'))
+      // console.log("/^123a*.123a$/.test('123a43343123a')",/^123a.*123a$/.test('123a43343123a'))
+      // console.log("/kura?c/.test('kurc')",/kura?c/.test('kurc'))
+      // console.log("/kura?c/.test('kurac')",/kura?c/.test('kurac'))
+      // console.log("/kura?c/.test('krc')",/kura?c/.test('krc'))
+      // console.log("/kura?c/.test('krac')",/kura?c/.test('krac'))*/
+
+      // console.log("typeof('ivan')",typeof("ivan"))
+
+      console.log(`VAJE:
+      //////
+      `);
+      //🟡 STOPNJA 2 – kombinacije osnov
+      /*1️⃣ Samo črke (brez številk, brez presledkov)
+
+👉 string mora biti:
+
+od začetka do konca
+samo črke
+
+Primeri:
+
+"abc" ✅
+"abc123" ❌
+"abc def" ❌*/
+
+      // const notNumOrZnak = /\D|[^s]/;
+      // const notNumOrZnak = /w\[^d|s]/;
+      const notNumOrZnak = /^[a-zA-Z]+$/;
+      console.log("//const notNumOrZnak = /\D|[^s]/;  //NARUBE")
+      console.log("//const notNumOrZnak = /w\[^d|s]/  //NARUBE")
+      console.log("//const notNumOrZnak = /^[a-zA-Z]+$/  //PRAV")
+      console.log("notNumOrZnak.test('abc')", notNumOrZnak.test("abc"));
+      console.log("notNumOrZnak.test('abc123'))", notNumOrZnak.test("abc123"));
+      console.log("notNumOrZnak.test('abc def')", notNumOrZnak.test("abc def"));
     </script>
   </body>
 </html>

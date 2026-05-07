@@ -26,6 +26,6 @@ const validFormats = checkBtn.addEventListener("click", () => {
   }
 });
 clearBtn.addEventListener("click", () => {
-  input.value=""
+  input.value = "";
   result.innerHTML = "";
 });
