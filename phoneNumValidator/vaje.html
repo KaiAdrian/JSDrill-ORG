@@ -14,14 +14,14 @@
 
       let val2 = /mačk/;
       /*
-            console.log(preveri(val1, niz1));
-            console.log(preveri(val2, niz1)); //false
+                  console.log(preveri(val1, niz1));
+                  console.log(preveri(val2, niz1)); //false
 
-            let novaVal = /cat|dog/;
-            console.log(preveri(novaVal, "dog")); //true
-            console.log(preveri(novaVal, "cat")); //true
-            console.log(preveri(novaVal, val2)); //false
-      */
+                  let novaVal = /cat|dog/;
+                  console.log(preveri(novaVal, "dog")); //true
+                  console.log(preveri(novaVal, "cat")); //true
+                  console.log(preveri(novaVal, val2)); //false
+            */
       //3️⃣ Najdi vse številke
       // 👉 uporabi \d
       // /\d/
@@ -39,14 +39,14 @@
 
       console.log("/[a-z]/.test(/123/)=>", /[a-z]/.test(/123/));
       /*
-            👉 ali string "/123/" vsebuje črko?
-            ➡️ false
+                  👉 ali string "/123/" vsebuje črko?
+                  ➡️ false
 
-            ⚠️ ampak to je “fake pravilen” primer — ker:
+                  ⚠️ ampak to je “fake pravilen” primer — ker:
 
-            nisi testiral številke
-            ampak string "/123/"
-            */
+                  nisi testiral številke
+                  ampak string "/123/"
+                  */
       console.log(/[a-z]/.test(true));
       //
       console.log("/[a-z]/.test(123)=>", /[a-z]/.test(123));
@@ -106,31 +106,47 @@
       // console.log("typeof('ivan')",typeof("ivan"))
 
       console.log(`VAJE:
-      //////
-      `);
+            //////
+            `);
       //🟡 STOPNJA 2 – kombinacije osnov
       /*1️⃣ Samo črke (brez številk, brez presledkov)
 
-👉 string mora biti:
+      👉 string mora biti:
 
-od začetka do konca
-samo črke
+      od začetka do konca
+      samo črke
 
-Primeri:
+      Primeri:
 
-"abc" ✅
-"abc123" ❌
-"abc def" ❌*/
+      "abc" ✅
+      "abc123" ❌
+      "abc def" ❌*/
 
       // const notNumOrZnak = /\D|[^s]/;
       // const notNumOrZnak = /w\[^d|s]/;
       const notNumOrZnak = /^[a-zA-Z]+$/;
-      console.log("//const notNumOrZnak = /\D|[^s]/;  //NARUBE")
-      console.log("//const notNumOrZnak = /w\[^d|s]/  //NARUBE")
-      console.log("//const notNumOrZnak = /^[a-zA-Z]+$/  //PRAV")
+      console.log("//const notNumOrZnak = /\D|[^s]/;  //NARUBE");
+      console.log("//const notNumOrZnak = /w\[^d|s]/  //NARUBE");
+      console.log("//const notNumOrZnak = /^[a-zA-Z]+$/  //PRAV");
       console.log("notNumOrZnak.test('abc')", notNumOrZnak.test("abc"));
       console.log("notNumOrZnak.test('abc123'))", notNumOrZnak.test("abc123"));
       console.log("notNumOrZnak.test('abc def')", notNumOrZnak.test("abc def"));
+
+      /*   6️⃣ Veljavna “uporabniška ime”
+
+        👉 pravila:
+
+        začne se s črko
+        lahko vsebuje črke + številke + _
+        dolžina 3–10*/
+
+      const userName = /^[a-zA-Z0-9]{3,10}$ /;
+      // "a123" ✅
+      // "1abc" ❌
+      // "abc" ❌
+      console.log("userName.test('a123') //prav", userName.test("a123")); //prav
+      console.log("userName.test('1abc') //narobe", userName.test("1abc")); //narobe
+      console.log("userName.test('abc') //narobe", userName.test("abc")); //narobe
     </script>
   </body>
 </html>
