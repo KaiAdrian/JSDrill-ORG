@@ -155,6 +155,20 @@
       const noNumStart = /^[^0-9][a-zA-Z0-9]*$/;
       console.log("noNumStart.test('abc')//prav", noNumStart.test("abc"));
       console.log("noNumStart.test('1abc')//narobe", noNumStart.test("1abc"));
+
+      //3️⃣ Začne se s črko, konča s številko
+      // 👉 moraš uporabiti:
+      // ^
+      // $
+      // kombinacijo razredov
+      // Primeri:
+      // "a123" ✅
+      // "1abc" ❌
+      // "abc" ❌
+      const lettEndNum = /^[a-zA-z][0-9]*$/;
+      console.log("lettEndNum.test('a123') //true",lettEndNum.test('a123'))
+      console.log("lettEndNum.test('1abc') //false",lettEndNum.test('1abc'))
+      console.log("lettEndNum.test('abc') //false",lettEndNum.test('abc'))
     </script>
   </body>
 </html>
